@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <AccountInfo msg="Welcome to Your Vue.js App"/>
+    <AccountInfo2 msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import AccountInfo from './components/AccountInfo.vue'
+// import AccountInfo from './components/AccountInfo.vue'
+import AccountInfo2 from './components/AccountInfo2.vue'
 
 export default {
   name: 'App',
   components: {
-    AccountInfo
+    AccountInfo2
   }
 }
 </script>

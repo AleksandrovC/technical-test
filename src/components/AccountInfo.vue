@@ -87,7 +87,7 @@
                         <label class="" :for="aditionalField.id">Do you have a {{ aditionalField.label }}</label>
                         <b-form-input v-model="aditionalField.value" :id="aditionalField.id"
                           :state="aditionalField.validationState" class="w-100 mt-1 mb-2 mr-sm-2"
-                          :placeholder="aditionalField.placeholder" @keyup="validateState(index)"></b-form-input>
+                          :placeholder="aditionalField.placeholder" @keyup="validateCharacters(index)"></b-form-input>
                         <b-form-invalid-feedback id="aditionalField.id">
                           {{ aditionalField.label }} can contain only numbers, letters, "/" and "-".
                         </b-form-invalid-feedback>
@@ -105,7 +105,7 @@
 
       </b-row>
       <b-row
-        class="form--footer mx-0 flex-column flex-md-row px-3 px-md-5 py-3 py-md-5 bg-white border border-top-0 border-grey-500"
+        class="form-footer mx-0 flex-column flex-md-row px-3 px-md-5 py-3 py-md-5 bg-white border border-top-0 border-grey-500"
         style="border-radius: 0 0 0.5em 0.5em">
         <!-- Form Save Button -->
         <b-form-row class="">
@@ -124,10 +124,7 @@
 
 <script>
 export default {
-  name: 'AccountInfo2',
-  props: {
-    msg: String
-  },
+  name: 'AccountInfo',
   data () {
     return {
       collapsibleOpen: false,
@@ -261,8 +258,7 @@ export default {
           validationState: '',
           value: ''
         }
-      ],
-      errors: []
+      ]
     }
   },
   mounted () {
@@ -270,23 +266,28 @@ export default {
   },
   computed: {
     allowSaveButton: function () {
+      // check required main fields have value
       return this.fields.every(
         field => field.isOptional || (true &&
           field.value !== null &&
           field.value !== undefined &&
           field.value !== '')) &&
+
+        // check additional fields validation
         this.aditionalFields.every(
           aditionalField => aditionalField.validationState !== false
         ) &&
+
+        // check select has value
         (this.selectFields.every(
           select => select.value !== null &&
-          select.value !== undefined &&
-          select.value !== ''))
+            select.value !== undefined &&
+            select.value !== ''))
     }
   },
 
   methods: {
-    validateState: function (i) {
+    validateCharacters: function (i) {
       const inputValue = this.aditionalFields[i].value
       const regex = /^[a-zA-Z0-9\s\-/]+$/g
 
@@ -457,7 +458,7 @@ h2 {
   }
 
   input {
-    color:transparent;
+    color: transparent;
     padding-left: 16px;
   }
 
@@ -517,7 +518,7 @@ h2 {
   }
 }
 
-.form--footer {
+.form-footer {
   background-color: $neutral-200 !important;
 }
 

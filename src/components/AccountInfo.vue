@@ -54,8 +54,8 @@
               <div class="my-2 col-12 col-md-6 pl-md-3 mb-2">
                 <label class="mb-1 mr-sm-2" for="selectProvince">Province</label>
                 <div class="position-relative">
-                  <b-form-select id="selectProvince" class="w-100 mr-sm-2 mb-sm-0" :options="selectFields[0].options"
-                    :value="null">
+                  <b-form-select id="selectProvince" v-model="selectFields[0].value" class="w-100 mr-sm-2 mb-sm-0"
+                    :options="selectFields[0].options" :value="null">
                     <div> test</div>
                   </b-form-select>
                   <b-icon class="select-custom-arrow position-absolute" icon="chevron-down"></b-icon>
@@ -220,7 +220,8 @@ export default {
           options: [
             { value: null, text: 'Select' }
             // full list added by getSelectOptions()
-          ]
+          ],
+          value: null
         }
       ],
       aditionalFields: [
@@ -270,12 +271,17 @@ export default {
   computed: {
     allowSaveButton: function () {
       return this.fields.every(
-        field => field.value !== null &&
+        field => field.isOptional || (true &&
+          field.value !== null &&
           field.value !== undefined &&
-          field.value !== '') &&
+          field.value !== '')) &&
         this.aditionalFields.every(
           aditionalField => aditionalField.validationState !== false
-        )
+        ) &&
+        (this.selectFields.every(
+          select => select.value !== null &&
+          select.value !== undefined &&
+          select.value !== ''))
     }
   },
 
@@ -448,6 +454,11 @@ h2 {
 
   label .optional {
     color: $neutral-400;
+  }
+
+  input {
+    color:transparent;
+    padding-left: 16px;
   }
 
   input,

@@ -421,10 +421,6 @@ h2 {
 
   }
 
-  //     color: #fff;
-  // background-color: #5a6268;
-  // border-color: #545b62;
-  // box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);
 }
 
 .form-container {

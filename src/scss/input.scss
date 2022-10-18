@@ -43,12 +43,6 @@ select option {
   color: $neutral-500;
 }
 
-// select:invalid,
-// select option[value=""],
-// select option:disabled {
-//   color: red;
-// }
-
 /*Added for browser compatibility*/
 [hidden] {
   display: none;

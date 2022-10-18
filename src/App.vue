@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AccountInfo from './components/AccountInfo.vue'
+import AccountInfo from './pages/AccountInfo.vue'
 
 export default {
   name: 'App',

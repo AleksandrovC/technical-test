@@ -71,7 +71,7 @@ export default {
 
   .pill-input {
     font-size: 14px;
-    background-color: $neutral-300;
+    background-color: $neutral-100;
 
     span {
       cursor: pointer;

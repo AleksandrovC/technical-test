@@ -1,0 +1,74 @@
+label {
+  font-size: 14px;
+  font-weight: 500;
+  justify-content: start !important;
+  color: $neutral-700;
+  white-space: pre;
+}
+
+label .optional {
+  color: $neutral-400;
+}
+
+input {
+  color: transparent;
+  padding-left: 16px;
+}
+
+input,
+select {
+  color: $neutral-900;
+  border: 1px solid $neutral-300;
+  border-radius: 0.5em;
+  height: 44px;
+
+  &::placeholder{
+  color: $neutral-500;
+  }
+
+  &:focus {
+    border: 1px solid $warning-300;
+    box-shadow: 0px 0px 0px 4px $warning-100 !important;
+    box-shadow: 0px 1px 2px 0px rgba(249, 243, 236, 1);
+
+  }
+
+  &:disabled {
+    background-color: $neutral-50 !important;
+  }
+}
+
+select,
+select option {
+  color: $neutral-500;
+}
+
+// select:invalid,
+// select option[value=""],
+// select option:disabled {
+//   color: red;
+// }
+
+/*Added for browser compatibility*/
+[hidden] {
+  display: none;
+}
+
+.is-valid {
+  border: 1px solid $neutral-300 !important;
+
+  &:focus {
+    border: 1px solid $warning-300 !important;
+
+  }
+
+  //   // border-color: green;
+  //   border: inherit;
+  background-image: none !important;
+}
+
+.is-invalid {
+  border-color: red !important;
+  background-image: none !important;
+
+}

@@ -2,8 +2,20 @@
 $body-bg:   #FAFAFC;
 $body-color: red;
 $enable-rounded: true;
+$neutral-50: #F8FAFC;
+$neutral-200: #E2E8F0;
+$neutral-300: #cbd5e1;
+$neutral-400: #a2abb8;
+$neutral-500: #6e7886;
+$neutral-700: #334155;
+$netural-900: #052843;
+$warning-25: #FFFCF5;
+$warning-50: #F9F3EC;
+$warning-100: #f9ece0;
+$warning-300: #FEC84B;
+$warning-700: #F9A24B;
+$warning-800: #F99632;
 
-// Then import Bootstrap and BootstrapVue SCSS files (order is important)
 @import 'node_modules/bootstrap/scss/bootstrap.scss';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
